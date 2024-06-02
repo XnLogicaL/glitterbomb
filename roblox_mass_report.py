@@ -14,19 +14,14 @@ class main:
 
         print("starting")
 
-        try:
-            while True:
-                try:
-                    self.report()
-                except KeyboardInterrupt:
-                    break
-                except:
-                    sleep(30)
-                    continue
-        finally:
-            while True:
-                input("press enter to view report count...")
-                print(self.reports)
+        while True:
+            try:
+                self.report()
+            except KeyboardInterrupt:
+                break
+            except:
+                sleep(30)
+                continue
 
     def report(self):
         url = f"https://www.roblox.com/abusereport/userprofile?id={self.user_id}&redirecturl=https%3a%2f%2fwww.roblox.com%2fusers%2f{self.user_id}%2fprofile"
@@ -43,6 +38,8 @@ class main:
         submit.click()
 
         self.reports += 1
+        
+        print(f"report #{self.reports} complete")
 
 if __name__ == "__main__":
     main()
